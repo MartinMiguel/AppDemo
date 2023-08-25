@@ -11,7 +11,7 @@ on:
 
 env:
   AZURE_WEBAPP_PACKAGE_PATH: '.'
-  AZURE_WEBAPP_DEMO: 'aspnetghappdemo'
+  AZURE_WEBAPP_NAME: aspnetghappdemo
 
 jobs:
   build:
@@ -37,7 +37,7 @@ jobs:
     - name: Deploy
       uses: azure/webapps-deploy@v2
       with:
-        app-name: ${{ AZURE_WEBAPP_DEMO }}
+        app-name: ${{ AZURE_WEBAPP_NAME }}
         slot-name: 'development'
         publish-profile: ${{ secrets.AZURE_WEB_APP_ASP_PUBLISH_SECRET }}
         package: '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapp'
